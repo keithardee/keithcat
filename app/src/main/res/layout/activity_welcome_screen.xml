@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_welcome_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_start"
+    tools:context=".WelcomeScreenActivity"
+    android:padding="20dp">
+
+    <!--  MAIN LOGO  -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Welcome!"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <!--  WELCOME TEXT  -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:justificationMode="inter_word"
+        android:lineHeight="20dp"
+        android:text="The Purrfect Pair app aims to assist cat owners in identifying suitable breeders or companions for their pets by considering essential traits such as personality, energy levels, breed preferences, and specific behavioral needs. By leveraging a data-driven approach, the app ensures optimal matches, catering to those seeking reputable breeders or compatible feline friends."
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <!--  DESCRIPTION LIST  -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="Illustration Image"
+        android:src="@drawable/purrfecpair_logo"/>
+
+    <!-- LOGIN BUTTON -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        style="@style/Light.Buttons.Operation"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="25dp"
+        android:text="Login" />
+
+    <!--  REGISTETR BUTTON  -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        style="@style/Dark.Buttons.Operation"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginTop="20dp"
+        android:text="Register" />
+
+
+
+</RelativeLayout>

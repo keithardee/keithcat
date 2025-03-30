@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="50dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/custom_edit_text"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="Add Cat Information"
+                    android:textAlignment="center"
+                    android:textColor="@color/lavender_dark"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="Insert cat information to find breeder                        (only for cats of the appropriate age)"
+                    android:textAlignment="center"
+                    android:textColor="@color/lavender_dark"
+                    android:textSize="13sp" />
+
+                <!--      CAT NAME INPUT      -->
+                <EditText
+                    android:id="@+id/petName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:layout_marginTop="20dp"
+                    android:padding="8dp"
+                    android:textSize="17dp"
+                    android:hint="Pet Name"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:drawableLeft="@drawable/ic_addpet"
+                    android:textColor="@color/black"
+                    android:drawablePadding="8dp"/>
+
+                <!--      BREED TYPE INPUT      -->
+                <EditText
+                    android:id="@+id/breedType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:textSize="17dp"
+                    android:hint="Type of Breed"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:drawableLeft="@drawable/ic_cat_breed"
+                    android:textColor="@color/black"
+                    android:drawablePadding="8dp"/>
+
+                <!--      SELECT GENDER OF CAT      -->
+                <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edit_text">
+
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/genders_equality" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="10dp">
+
+
+                        <RadioButton
+                            android:id="@+id/radioMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:text="Male"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/radioFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:text="Female"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <!--      PET AGE INPUT      -->
+                <EditText
+                    android:id="@+id/agePet"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:hint="Pet Age"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="17dp"
+                    android:drawableLeft="@drawable/ic_cat_profile"
+                    android:textColor="@color/black"
+                    android:drawablePadding="8dp"/>
+
+                <!--      HOW I ADOPT MY PET INPUT      -->
+                <EditText
+                    android:id="@+id/adoptType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_adopt"
+                    android:drawablePadding="8dp"
+                    android:textSize="17dp"
+                    android:hint="How did I adopt my pet?"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!--      HOW I ADOPT MY PET INPUT      -->
+                <EditText
+                    android:id="@+id/vaccination"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="number"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_syringe"
+                    android:drawablePadding="8dp"
+                    android:textSize="17dp"
+                    android:hint="Pets vaccination count?"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!--      HOW I ADOPT MY PET INPUT      -->
+                <EditText
+                    android:id="@+id/datePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:drawablePadding="8dp"
+                    android:textSize="17sp"
+                    android:hint="Availabilty Date until?"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:focusable="false"
+                    android:clickable="true"/>
+
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:background="@drawable/custom_edittext_box"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/imageView"
+                        android:scaleType="centerCrop"/>
+
+                    <Button
+                        android:id="@+id/btnimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/outline_button"
+                        android:drawableLeft="@drawable/ic_upload_photo"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:padding="8dp"
+                        android:text="Upload Photo"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+</RelativeLayout>

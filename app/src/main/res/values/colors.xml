@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="light_lavender">#d8c1f7</color>
+    <color name="lavender_dark">#4e366c</color>
+    <color name="bg_lavender">#AA77EE</color>
+    <color name="grey">#888888</color>
+    <color name="grey_light">#F0F0F0</color>
+
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">PurrfectPairCat</string>
+    <string name="login_sub_title">
+        <font color="#4e366c"><b>Login</b></font>
+        if you already have an account.
+    </string>
+    <string name="login_havent_account">
+        I don\'t have an account
+        <font color="#4e366c"><b>Register</b></font>
+    </string>
+    <string name="register_sub_title">
+        <font color="#4e366c"><b>Register</b></font>
+        to get started with the app.
+    </string>
+    <string name="register_have_account">
+        I already have an account
+        <font color="#4e366c"><b>Login</b></font>
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

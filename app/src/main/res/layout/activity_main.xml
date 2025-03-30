@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/img_start"
+    android:padding="20dp">
+
+<!-- MAIN LOGO -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/purrfecpair_logo"
+        android:layout_centerInParent="true" />
+
+<!--  BUTTON FOR GET STARTED!  -->
+
+    <!-- TEXT BELLOW -->
+    <Button
+        android:id="@+id/btnStart"
+        style="@style/Dark.Buttons.Operation"
+        android:layout_width="320dp"
+        android:layout_height="63dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/textView"
+        android:layout_marginBottom="29dp"
+        android:text="GET STARTED!" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:text="© 2025 PURRFECT MATCH. All rights reserved."
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+</RelativeLayout>

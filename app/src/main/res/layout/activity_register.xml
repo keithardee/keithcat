@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_start"
+    tools:context=".RegisterActivity"
+    android:paddingBottom="20dp">
+
+    <RelativeLayout
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp"
+        android:layout_marginTop="25dp"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent">
+
+        <!--     IMAGE LOGO       -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/purrfecpair_logo" />
+
+        <!-- BACK BUTTON -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="55dp"
+            android:layout_height="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="64dp"
+            android:layout_toStartOf="@+id/imgLogo"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_arrow_back_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
+
+    <!-- SCROLL VIEW TO ENABLE SCROLLING -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="30dp">
+
+        <!-- CARD WIDGET BOX -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:background="@color/white"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp">
+
+            <!-- BOX CONTENT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_edit_text"
+                android:orientation="vertical"
+                android:paddingStart="24dp"
+                android:paddingTop="24dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="50dp">
+
+                <!-- LOGIN TEXT -->
+                <TextView
+                    android:id="@+id/loginText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="Create an account"
+                    android:textAlignment="center"
+                    android:textColor="@color/lavender_dark"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <!-- LOGIN DESCRIPTION -->
+                <TextView
+                    android:id="@+id/tv_register_sub_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:text="@string/register_sub_title" />
+
+                <!-- FULL NAME INPUT -->
+                <EditText
+                    android:id="@+id/fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/baseline_person_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Full Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!-- EMAIL INPUT -->
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!-- PHONE NUMBER INPUT -->
+                <EditText
+                    android:id="@+id/contactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="8dp"
+                    android:hint="Contact Number"
+                    android:inputType="phone"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!-- FACEBOOK NAME INPUT -->
+                <EditText
+                    android:id="@+id/fbName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_facebook"
+                    android:drawablePadding="8dp"
+                    android:hint="Facebook Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!-- FACEBOOK NAME INPUT -->
+                <EditText
+                    android:id="@+id/homeAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/ic_address"
+                    android:drawablePadding="8dp"
+                    android:hint="Home Address"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <!-- PASSWORD INPUT -->
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/custom_edit_text"
+                        android:drawableLeft="@drawable/baseline_lock_24"
+                        android:drawablePadding="8dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:padding="8dp"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/showpassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-40dp"
+                        android:layout_marginLeft="-40dp"
+                        android:layout_marginTop="33dp"
+                        android:layout_toEndOf="@id/password"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/ic_hidepassword"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                </RelativeLayout>
+
+                <!-- CONFIRM PASSWORD INPUT -->
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:drawableLeft="@drawable/baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <!-- REGISTER BUTTON -->
+                <Button
+                    android:id="@+id/btnRegister"
+                    style="@style/Dark.Curve.Buttons.Login"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="Register" />
+
+                <!-- ALREADY HAVE ACCOUNT -->
+                <TextView
+                    android:id="@+id/tv_have_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:text="@string/register_have_account" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+</RelativeLayout>

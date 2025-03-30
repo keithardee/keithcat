@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.purrfectpaircat.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_personalprofile"
+        android:name="com.example.purrfectpaircat.PersonalFragment"
+        android:label="Personal Profile"
+        tools:layout="@layout/fragment_personal" />
+    <fragment
+        android:id="@+id/navigation_petprofile"
+        android:name="com.example.purrfectpaircat.PetsFragment"
+        android:label="Pet Profile"
+        tools:layout="@layout/fragment_pets" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.purrfectpaircat.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
