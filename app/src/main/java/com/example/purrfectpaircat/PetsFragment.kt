@@ -173,6 +173,19 @@ class PetsFragment : Fragment() {
             it.setOnKeyListener(blockEnterKeyListener)
         }
 
+        // Apply input filters to restrict to 3 digits
+        val digitFilter = InputFilter { source, _, _, dest, _, _ ->
+            if (source.matches(Regex("\\d*")) && (dest.length + source.length) <= 3) {
+                source
+            } else {
+                ""
+            }
+        }
+
+        petAge.filters = arrayOf(digitFilter)
+        vaccine.filters = arrayOf(digitFilter)
+
+
         val addDialog = AlertDialog.Builder(requireContext())
             .setTitle("Add Pet")
             .setView(v)
@@ -234,10 +247,18 @@ class PetsFragment : Fragment() {
 
     private fun showDatePicker(datePicker: EditText) {
         val calendar = Calendar.getInstance()
-        DatePickerDialog(requireContext(), { _, year, month, day ->
+        val today = calendar.timeInMillis // Get current date in milliseconds
+
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, day ->
             datePicker.setText("${month + 1}/$day/$year")
-        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+
+        // Restrict past dates
+        datePickerDialog.datePicker.minDate = today
+
+        datePickerDialog.show()
     }
+
 
     private fun savePetData(petList: ArrayList<UserData>) {
         sharedPreferences.edit().putString("pets", petList.joinToString(";") {
