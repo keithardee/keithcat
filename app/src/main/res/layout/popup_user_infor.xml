@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:background="@drawable/custom_edit_text">
+
+    <TextView
+        android:id="@+id/tvFullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/contactNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/fbName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Facebook Name"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/homeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home Address"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close"/>
+
+</LinearLayout>

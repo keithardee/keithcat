@@ -17,7 +17,7 @@ class UserAdapter(
     private val context: Context,
     private var catList: ArrayList<UserData>,
     private val isDeletable: Boolean, // NEW PARAMETER TO CONTROL DELETE BUTTON VISIBILITY
-    private val onDelete: (Int) -> Unit // Callback for deleting item
+    private val onDelete: (Int) -> Unit // Callback for deleting itemz
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(v: View) : RecyclerView.ViewHolder(v) {

@@ -75,60 +75,60 @@
                     android:background="@drawable/custom_edittext_box"
                     android:drawableLeft="@drawable/baseline_person_24"
                     android:drawablePadding="8dp"
-                    android:hint="Full Name *"
+                    android:text="Full Name *"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 
                 <!-- EMAIL TEXTVIEW -->
                 <TextView
-                    android:id="@+id/email"
+                    android:id="@+id/tvEmail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/custom_edittext_box"
                     android:drawableLeft="@drawable/baseline_email_24"
                     android:drawablePadding="8dp"
-                    android:hint="Email *"
+                    android:text="Email *"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 
                 <!-- PHONE NUMBER TEXTVIEW -->
                 <TextView
-                    android:id="@+id/contactNumber"
+                    android:id="@+id/tvContactNumber"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/custom_edittext_box"
                     android:drawableLeft="@drawable/ic_phone"
                     android:drawablePadding="8dp"
-                    android:hint="Contact Number *"
+                    android:text="Contact Number *"
                     android:inputType="phone"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 
                 <!-- FACEBOOK NAME TEXTVIEW -->
                 <TextView
-                    android:id="@+id/fbName"
+                    android:id="@+id/tvFacebook"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/custom_edittext_box"
                     android:drawableLeft="@drawable/ic_facebook"
                     android:drawablePadding="8dp"
-                    android:hint="Facebook Name *"
+                    android:text="Facebook Name *"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 
                 <!-- FACEBOOK NAME TEXTVIEW -->
                 <TextView
-                    android:id="@+id/homeAddress"
+                    android:id="@+id/tvAddress"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/custom_edittext_box"
                     android:drawableLeft="@drawable/ic_address"
                     android:drawablePadding="8dp"
-                    android:hint="Home Address *"
+                    android:text="Home Address *"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 
