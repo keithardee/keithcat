@@ -178,28 +178,25 @@ class RegisterActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val res = response.body()
 
-                        if (res != null) {
-                            Log.d("API_RESPONSE", "Error: ${res.error}")
-                            Log.d("API_RESPONSE", "Message: ${res.message}")
-                            Toast.makeText(this@RegisterActivity, res.message, Toast.LENGTH_SHORT).show()
+                        if (res != null && !res.error) {
+                            // Save the user data in SharedPreferences
+                            val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
 
-                            if (!res.error) {
-                                // Save the data to SharedPreferences
-                                val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
-                                val editor = sharedPreferences.edit()
-                                editor.putString("fullname", fullname)
-                                editor.putString("email", email)
-                                editor.putString("contact_number", contactNumber)
-                                editor.putString("facebook_name", facebookName)
-                                editor.putString("home_address", homeAddress)
-                                editor.apply()
+                            // Save relevant user data to SharedPreferences
+                            editor.putString("fullname", fullname)
+                            editor.putString("email", email)
+                            editor.putString("contact_number", contactNumber)
+                            editor.putString("facebook_name", facebookName)
+                            editor.putString("home_address", homeAddress)
+                            editor.putString("password", password) // Optionally save password (though usually, you'd avoid this for security reasons)
+                            editor.apply()
 
-                                // Navigate to LoginActivity
-                                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                                startActivity(intent)
-                                finish() // Optional: This will close the RegisterActivity
-                            }
+                            // Navigate to LoginActivity after successful registration
+                            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish() // Close RegisterActivity
                         } else {
                             Toast.makeText(this@RegisterActivity, "Server returned an empty response", Toast.LENGTH_SHORT).show()
                         }

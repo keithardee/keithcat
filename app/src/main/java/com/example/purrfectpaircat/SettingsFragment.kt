@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -36,18 +37,27 @@ class SettingsFragment : Fragment() {
             startActivity(intent)
         }
 
-        // Log out and go to MainActivity
         logout.setOnClickListener {
-            val sharedPreferences = requireActivity().getSharedPreferences("user_data", AppCompatActivity.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
+            AlertDialog.Builder(requireContext())
+                .setMessage("Are you sure you want to log out?")
+                .setCancelable(false)
+                .setPositiveButton("Yes") { _, _ ->
+                    // Clear SharedPreferences and navigate to Login Screen
+                    val sharedPreferences = requireActivity().getSharedPreferences("user_data", AppCompatActivity.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.clear()
+                    editor.apply()
 
-            editor.clear() // Clears only user session data, NOT pet data
-            editor.apply()
-
-            val intent = Intent(requireContext(), MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clears back stack
-            startActivity(intent)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
+                .setNegativeButton("No", null)
+                .show()
         }
+
+
+
 
 
 

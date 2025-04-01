@@ -1,5 +1,6 @@
 package com.example.purrfectpaircat
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -24,16 +25,13 @@ class PersonalFragment : Fragment() {
         _binding = FragmentPersonalBinding.inflate(inflater, container, false)
 
         // Get SharedPreferences data
-        val sharedPreferences: SharedPreferences =
-            requireContext().getSharedPreferences("user_data", android.content.Context.MODE_PRIVATE)
-
+        val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val fullname = sharedPreferences.getString("fullname", "N/A")
         val email = sharedPreferences.getString("email", "N/A")
         val contactNumber = sharedPreferences.getString("contact_number", "N/A")
         val facebookName = sharedPreferences.getString("facebook_name", "N/A")
         val homeAddress = sharedPreferences.getString("home_address", "N/A")
 
-        // Set the data to the TextViews
         binding.tvFullname.text = fullname
         binding.tvEmail.text = email
         binding.tvContactNumber.text = contactNumber

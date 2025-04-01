@@ -41,11 +41,13 @@ class LoginActivity : AppCompatActivity() {
 
             if (isPasswordVisible) {
                 // Show password
-                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                passwordEditText.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
                 showPasswordIcon.setImageResource(R.drawable.ic_showpassword) // Change to show icon
             } else {
                 // Hide password
-                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                passwordEditText.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 showPasswordIcon.setImageResource(R.drawable.ic_hidepassword) // Change to hide icon
             }
 
@@ -91,19 +93,48 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     if (loginResponse != null && !loginResponse.error) {
-                        Toast.makeText(this@LoginActivity, "Welcome, ${loginResponse.user?.fullname}!", Toast.LENGTH_SHORT).show()
+                        // Save user data to SharedPreferences if login is successful
+                        val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("email", email)
+                        editor.putString("fullname", loginResponse.user?.fullname)
+                        editor.putString("contact_number", loginResponse.user?.contactNumber)
+                        editor.putString("facebook_name", loginResponse.user?.facebookName)
+                        editor.putString("home_address", loginResponse.user?.homeAddress)
+                        editor.apply()
+
+                        // Show welcome message
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Welcome, ${loginResponse.user?.fullname}!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        // Navigate to HomeActivity
                         startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                        finish()
+                        finish() // Close login screen
                     } else {
-                        Toast.makeText(this@LoginActivity, loginResponse?.message ?: "Login failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoginActivity,
+                            loginResponse?.message ?: "Login failed!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } else {
-                    Toast.makeText(this@LoginActivity, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Invalid Email or Password",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Network error: ${t.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }
