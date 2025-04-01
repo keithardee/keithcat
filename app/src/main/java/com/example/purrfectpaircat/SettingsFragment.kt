@@ -56,11 +56,6 @@ class SettingsFragment : Fragment() {
                 .show()
         }
 
-
-
-
-
-
         // Change Pass and go to LoginActivity
         changepass.setOnClickListener {
             val intent = Intent(requireContext(), ChangepassActivity::class.java)

@@ -192,6 +192,8 @@ class RegisterActivity : AppCompatActivity() {
                             editor.putString("password", password) // Optionally save password (though usually, you'd avoid this for security reasons)
                             editor.apply()
 
+                            Toast.makeText(this@RegisterActivity, "Registration Successful!", Toast.LENGTH_SHORT).show()
+
                             // Navigate to LoginActivity after successful registration
                             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

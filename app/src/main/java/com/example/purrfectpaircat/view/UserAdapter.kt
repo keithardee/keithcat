@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,6 +31,7 @@ class UserAdapter(
         val adddate: TextView = v.findViewById(R.id.mcatDateAvailable)
         val petPhoto: ImageView = v.findViewById(R.id.petPhoto)
         val btnDelete: ImageButton = v.findViewById(R.id.btnDelete)
+        val btnUserInfo: Button = v.findViewById(R.id.userInfo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -59,6 +61,11 @@ class UserAdapter(
             holder.petPhoto.setImageResource(R.drawable.ic_circle_account)
         }
 
+        // ADD CLICK LISTENER TO USER INFO BUTTON
+        holder.btnUserInfo.setOnClickListener {
+            showUserPopup(holder.itemView.context, user)
+        }
+
         if (isDeletable) {
             holder.btnDelete.visibility = View.VISIBLE
             holder.btnDelete.setOnClickListener {
@@ -67,6 +74,28 @@ class UserAdapter(
         } else {
             holder.btnDelete.visibility = View.GONE
         }
+    }
+
+    // FUNCTION TO SHOW USER INFO POPUP
+    private fun showUserPopup(context: Context, user: UserData) {
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_user_info, null)
+        val dialog = android.app.AlertDialog.Builder(context)
+            .setView(dialogView)
+            .create()
+
+        // BIND DATA TO POPUP FIELDS
+        dialogView.findViewById<TextView>(R.id.tvFullname).text = user.fullname ?: "N/A"
+        dialogView.findViewById<TextView>(R.id.tvEmail).text = user.email ?: "N/A"
+        dialogView.findViewById<TextView>(R.id.tvContactNumber).text = user.contactNumber ?: "N/A"
+        dialogView.findViewById<TextView>(R.id.tvFacebook).text = user.facebookName ?: "N/A"
+        dialogView.findViewById<TextView>(R.id.tvAddress).text = user.address ?: "N/A"
+
+        // CLOSE BUTTON
+        dialogView.findViewById<Button>(R.id.btnClose).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
 
