@@ -184,10 +184,21 @@ class RegisterActivity : AppCompatActivity() {
                             Toast.makeText(this@RegisterActivity, res.message, Toast.LENGTH_SHORT).show()
 
                             if (!res.error) {
+                                // Save the data to SharedPreferences
+                                val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+                                val editor = sharedPreferences.edit()
+                                editor.putString("fullname", fullname)
+                                editor.putString("email", email)
+                                editor.putString("contact_number", contactNumber)
+                                editor.putString("facebook_name", facebookName)
+                                editor.putString("home_address", homeAddress)
+                                editor.apply()
+
+                                // Navigate to LoginActivity
                                 val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(intent)
-                                finish()
+                                finish() // Optional: This will close the RegisterActivity
                             }
                         } else {
                             Toast.makeText(this@RegisterActivity, "Server returned an empty response", Toast.LENGTH_SHORT).show()

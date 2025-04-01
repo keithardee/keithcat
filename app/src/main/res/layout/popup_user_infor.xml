@@ -6,46 +6,141 @@
     android:orientation="vertical"
     android:background="@drawable/custom_edit_text">
 
+    <!--     LOGIN TEXT       -->
     <TextView
-        android:id="@+id/tvFullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Full Name"
-        android:textSize="18sp"
+        android:text="User Profile"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/lavender_dark"/>
+
+    <!-- Full Name TextView -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Full Name:"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/tvFullname"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edittext_box"
+        android:drawableLeft="@drawable/baseline_person_24"
+        android:drawablePadding="8dp"
+        android:text="Full Name *"
+        android:textSize="15sp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical|start"/>
+
+    <!-- Email TextView -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="16sp"/>
+        android:layout_marginTop="10dp"
+        android:text="Email:"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/contactNumber"
+        android:id="@+id/tvEmail"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edittext_box"
+        android:drawableLeft="@drawable/baseline_email_24"
+        android:drawablePadding="8dp"
+        android:text="Email *"
+        android:textSize="15sp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical|start"/>
+
+    <!-- Contact Number TextView -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact Number"
-        android:textSize="16sp"/>
+        android:layout_marginTop="10dp"
+        android:text="Contact Number:"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/fbName"
+        android:id="@+id/tvContactNumber"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edittext_box"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="8dp"
+        android:text="Contact Number *"
+        android:inputType="phone"
+        android:textSize="15sp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical|start"/>
+
+    <!-- Facebook Name TextView -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Facebook Name"
-        android:textSize="16sp"/>
+        android:layout_marginTop="10dp"
+        android:text="Facebook Name:"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/homeAddress"
+        android:id="@+id/tvFacebook"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Home Address"
-        android:textSize="16sp"/>
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edittext_box"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:drawablePadding="8dp"
+        android:text="Facebook Name *"
+        android:textSize="15sp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical|start"/>
 
+    <!-- Home Address TextView -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Home Address:"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edittext_box"
+        android:drawableLeft="@drawable/ic_address"
+        android:drawablePadding="8dp"
+        android:text="Home Address *"
+        android:textSize="15sp"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical|start"/>
+
+    <!-- Cancel Button -->
     <Button
-        android:id="@+id/btnClose"
+        android:id="@+id/btnCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Close"/>
+        android:text="Cancel"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
 
 </LinearLayout>
