@@ -100,6 +100,7 @@ class PetsFragment : Fragment() {
     private fun loadPetData() {
         val savedData = sharedPreferences.getString("pets", "") ?: ""
         val petList = ArrayList<UserData>()
+        val validPets = ArrayList<UserData>()
 
         if (savedData.isNotEmpty()) {
             savedData.split(";").forEach { entry ->
@@ -118,7 +119,18 @@ class PetsFragment : Fragment() {
                 }
             }
         }
-        petViewModel.setPetList(petList)
+        // Filter expired pets
+        val today = Calendar.getInstance()
+        val todayString = "${today.get(Calendar.MONTH) + 1}/${today.get(Calendar.DAY_OF_MONTH)}/${today.get(Calendar.YEAR)}"
+
+        for (pet in petList) {
+            if (pet.adddate >= todayString) {
+                validPets.add(pet)  // Keep valid pets only
+            }
+        }
+
+        petViewModel.setPetList(validPets)
+        savePetData(validPets)  // Update storage by removing expired pets
     }
 
     private fun saveImageToInternalStorage(uri: Uri): String? {
@@ -173,9 +185,9 @@ class PetsFragment : Fragment() {
             it.setOnKeyListener(blockEnterKeyListener)
         }
 
-        // Apply input filters to restrict to 3 digits
+        // Apply input filters to restrict to 2 digits
         val digitFilter = InputFilter { source, _, _, dest, _, _ ->
-            if (source.matches(Regex("\\d*")) && (dest.length + source.length) <= 3) {
+            if (source.matches(Regex("\\d*")) && (dest.length + source.length) <= 2) {
                 source
             } else {
                 ""
