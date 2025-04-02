@@ -1,8 +1,9 @@
 package com.example.purrfectpaircat.api
 
+import com.example.purrfectpaircat.model.PetRequest
+import com.example.purrfectpaircat.model.PetResponse
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 // Request Model for Adding Pet
@@ -21,15 +22,13 @@ data class PetRequestBody(
 
 // Response Model for Pet API
 data class PetResponse(
-    val success: Boolean,
+    val error: Boolean,
     val message: String
 )
 
 // API Interface for Pet Service
 interface PetService {
     @POST("mobile/addCat.php")
-    fun addPet(
-        @Header("Authorization") authHeader: String,  // Accept Bearer token in the header
-        @Body petDetails: PetRequestBody
-    ): Call<PetResponse>
+    fun addPet(@Body petRequest: PetRequest): Call<PetResponse>
 }
+

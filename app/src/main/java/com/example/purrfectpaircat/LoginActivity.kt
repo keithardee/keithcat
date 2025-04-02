@@ -104,6 +104,13 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("token", loginResponse.token)  // Save the token
                         editor.apply()
 
+                        // Save the user_id to SharedPreferences
+                        loginResponse.user?.id?.let {
+                            editor.putInt("user_id", it) // Save the user_id
+                        }
+
+                        editor.apply()
+
                         // Show welcome message
                         Toast.makeText(this@LoginActivity, "Welcome, ${loginResponse.user?.fullname}!", Toast.LENGTH_SHORT).show()
 
