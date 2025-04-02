@@ -101,40 +101,25 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("contact_number", loginResponse.user?.contactNumber)
                         editor.putString("facebook_name", loginResponse.user?.facebookName)
                         editor.putString("home_address", loginResponse.user?.homeAddress)
+                        editor.putString("token", loginResponse.token)  // Save the token
                         editor.apply()
 
                         // Show welcome message
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Welcome, ${loginResponse.user?.fullname}!",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@LoginActivity, "Welcome, ${loginResponse.user?.fullname}!", Toast.LENGTH_SHORT).show()
 
                         // Navigate to HomeActivity
                         startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                         finish() // Close login screen
                     } else {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            loginResponse?.message ?: "Login failed!",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@LoginActivity, loginResponse?.message ?: "Login failed!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Invalid Email or Password",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Network error: ${t.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this@LoginActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
