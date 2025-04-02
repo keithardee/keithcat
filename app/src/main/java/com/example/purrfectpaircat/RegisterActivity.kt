@@ -151,6 +151,11 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            val facebookPattern = Regex("^(https?://)?(www\\.)?facebook\\.com/([a-zA-Z0-9.]+)$")
+            if (!facebookName.matches(facebookPattern)) {
+                Toast.makeText(this, "Invalid Facebook link", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (contactNumber.length != 11) {
                 Toast.makeText(this, "Invalid contact number", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

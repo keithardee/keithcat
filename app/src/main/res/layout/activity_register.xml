@@ -146,7 +146,7 @@
                     android:background="@drawable/custom_edit_text"
                     android:drawableLeft="@drawable/ic_facebook"
                     android:drawablePadding="8dp"
-                    android:hint="Facebook Name"
+                    android:hint="Facebook Link"
                     android:padding="8dp"
                     android:textColor="@color/black" />
 

@@ -86,16 +86,24 @@ class PetsFragment : Fragment() {
     }
 
     private fun deletePet(position: Int) {
-        val petList = petViewModel.petList.value?.toMutableList() ?: return
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Pet")
+            .setMessage("Are you sure you want to delete this pet?")
+            .setPositiveButton("Yes") { _, _ ->
+                val petList = petViewModel.petList.value?.toMutableList() ?: return@setPositiveButton
 
-        petList.removeAt(position)
-        petViewModel.setPetList(ArrayList(petList))
+                petList.removeAt(position)
+                petViewModel.setPetList(ArrayList(petList))
 
-        savePetData(ArrayList(petList))
+                savePetData(ArrayList(petList))
 
-        userAdapter.notifyItemRemoved(position)
-        Toast.makeText(requireContext(), "Pet Deleted", Toast.LENGTH_SHORT).show()
+                userAdapter.notifyItemRemoved(position)
+                Toast.makeText(requireContext(), "Pet Deleted", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
+
 
     private fun loadPetData() {
         val savedData = sharedPreferences.getString("pets", "") ?: ""
