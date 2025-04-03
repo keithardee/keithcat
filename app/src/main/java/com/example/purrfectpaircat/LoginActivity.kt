@@ -1,7 +1,9 @@
 package com.example.purrfectpaircat
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Settings.Global.putString
 import android.text.InputType
 import android.widget.EditText
 import android.widget.ImageView
@@ -21,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var authService: AuthService
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         authService = RetrofitClient.authService
+        sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
 
         val passwordEditText = findViewById<EditText>(R.id.password)
         val showPasswordIcon = findViewById<ImageView>(R.id.showpassword)
@@ -93,6 +97,9 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     if (loginResponse != null && !loginResponse.error) {
+
+                        val token = loginResponse.token
+                        saveToken(token)
                         // Save user data to SharedPreferences if login is successful
                         val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
@@ -129,5 +136,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+    private fun saveToken(token: String) {
+        sharedPreferences.edit().apply {
+            putString("token", token)
+            apply()
+        }
     }
 }

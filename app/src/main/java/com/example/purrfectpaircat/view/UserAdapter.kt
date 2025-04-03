@@ -22,6 +22,7 @@ class UserAdapter(
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        val userFullName: TextView = v.findViewById(R.id.userFullName)
         val name: TextView = v.findViewById(R.id.mcatName)
         val breed: TextView = v.findViewById(R.id.mcatBreed)
         val gender: TextView = v.findViewById(R.id.mcatGender)
@@ -42,6 +43,12 @@ class UserAdapter(
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = catList[position]
+
+        val sharedPreferences = context.getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val ownerFullname = sharedPreferences.getString("fullname", "N/A") ?: "N/A"
+
+        holder.userFullName.text = "Owner: $ownerFullname"
+
         holder.name.text = "Pets Name: ${user.name}"
         holder.breed.text = "Pets Breed: ${user.breed}"
         holder.gender.text = "Pets Gender: ${user.gender}"
@@ -83,12 +90,24 @@ class UserAdapter(
             .setView(dialogView)
             .create()
 
+        val sharedPreferences = context.getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val user = UserData (
+            name = "", breed = "", gender = "", age = "", adopt = "",
+            vaccination =  "", adddate = "", imageUri = null,
+
+            fullname = sharedPreferences.getString("fullname", "N/A"),
+            email = sharedPreferences.getString("email", "N/A"),
+            contactNumber = sharedPreferences.getString("contact_number", "N/A"),
+            facebookName = sharedPreferences.getString("facebook_name", "N/A"),
+            address = sharedPreferences.getString("home_address", "N/A")
+        )
+
         // BIND DATA TO POPUP FIELDS
-        dialogView.findViewById<TextView>(R.id.tvFullname).text = user.fullname ?: "N/A"
-        dialogView.findViewById<TextView>(R.id.tvEmail).text = user.email ?: "N/A"
-        dialogView.findViewById<TextView>(R.id.tvContactNumber).text = user.contactNumber ?: "N/A"
-        dialogView.findViewById<TextView>(R.id.tvFacebook).text = user.facebookName ?: "N/A"
-        dialogView.findViewById<TextView>(R.id.tvAddress).text = user.address ?: "N/A"
+        dialogView.findViewById<TextView>(R.id.tvFullname).text = user.fullname
+        dialogView.findViewById<TextView>(R.id.tvEmail).text = user.email
+        dialogView.findViewById<TextView>(R.id.tvContactNumber).text = user.contactNumber
+        dialogView.findViewById<TextView>(R.id.tvFacebook).text = user.facebookName
+        dialogView.findViewById<TextView>(R.id.tvAddress).text = user.address
 
         // CLOSE BUTTON
         dialogView.findViewById<Button>(R.id.btnClose).setOnClickListener {
